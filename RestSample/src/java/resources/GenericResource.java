@@ -9,6 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import person.Person;
 
 @Path("/generic")
 public class GenericResource {
@@ -32,14 +33,27 @@ public class GenericResource {
     }
     
     @GET
-    @Path("extra/{thePrimaryKey}")
+    @Path("/extra/{thePrimaryKey}")
     public String sayExtra(@PathParam("thePrimaryKey") String pk) {
         return String.format("Here is the key %s", pk);
     }
     
     @DELETE
-    @Path("deleteme")
+    @Path("/deleteme")
     public String sayDelete() {
         return "i was deleted";
     }
+    
+    @GET
+    @Path("/xmltest/{primaryKey}")
+    @Produces(MediaType.APPLICATION_XML)
+    public Person xmlTest(@PathParam("primaryKey") Integer pk) {
+        Person david = new Person();
+        david.id = pk;
+        david.firstName = "David";
+        david.lastName = "Adams";
+        return david;
+    }
+    
+    
 }
