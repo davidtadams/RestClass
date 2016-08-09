@@ -45,15 +45,20 @@ public class GenericResource {
     }
     
     @GET
-    @Path("/xmltest/{primaryKey}")
+    @Path("/extra/{primaryKey}")
     @Produces(MediaType.APPLICATION_XML)
     public Person xmlTest(@PathParam("primaryKey") Integer pk) {
-        Person david = new Person();
-        david.id = pk;
-        david.firstName = "David";
-        david.lastName = "Adams";
-        return david;
+        return new Person(pk, "David", "Adams");
     }
-    
+
+    @GET
+    @Path("/extra/xx-{id}-yy-{idx}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String multiplePathSegments(
+            @PathParam("id") String id,
+            @PathParam("idx") String idx
+    ) {
+        return String.format("This is x: %s and y: %s", id, idx);
+    }
     
 }
