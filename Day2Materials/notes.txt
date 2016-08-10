@@ -1,0 +1,11 @@
+Urls noted and used
+
+- https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-jersey
+
+- https://github.com/spring-projects/spring-boot/tree/master/spring-boot-starters/spring-boot-starter-jersey
+
+- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jersey
+
+- https://github.com/SimonHGR/DishREST-Aug2016
+
+
